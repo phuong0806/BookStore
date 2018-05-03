@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>ADMIN - BOOK STORE</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/chosen.css" rel="stylesheet" />
+    <link href="~/Assets/admin/css/index.css" rel="stylesheet" />
+    <link href="~/Assets/admin/css/animate.css" rel="stylesheet" />
+    <link href="~/Content/jquery.notify.css" rel="stylesheet" />
+    @RenderSection("cssHeader", required: false)
+
+    <script src="~/Content/jquery-2.2.4.js"></script>
+    <script src="~/Content/bootstrap.min.js"></script>
+    <script src="~/Content/chosen.jquery.js"></script>
+    <script src="~/Content/jquery.notify.min.js"></script>
+    <script src="~/Content/fontawesome-all.min.js"></script>
+    <script src="~/Content/jquery.validate.min.js"></script>
+    <script src="~/Content/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Content/jquery.json.js"></script>
+    <script src="~/Content/plugins/mustache.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/Admin/Book/Index">BookStore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Sách <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tác giả</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thể loại</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Khuyến mãi
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </main>
+    <!-- page specific plugin scripts -->
+    <!--Begin embed javascript-->
+
+    <script src="~/Assets/admin/js/index.js"></script>
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

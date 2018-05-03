@@ -1,0 +1,212 @@
+﻿@model Model.ViewModel.BookViewModel
+
+@{
+    ViewBag.Title = "Cập nhật sách";
+    var listImage = ViewBag.listImage;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section cssHeader {
+    <link href="~/Assets/admin/css/addBook.css" rel="stylesheet" />
+}
+
+@section jsFooter {
+    <script src="~/Assets/admin/theme/ckeditor/ckeditor.js"></script>
+    <script src="~/Assets/admin/js/book.js"></script>
+}
+
+@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="col-md-12">
+            <div class="card mb-3 mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Tiêu đề</label>
+                                @Html.TextBoxFor(model => model.Name, new { @id = "title", @class = "form-control", @onkeyup = "ChangeToSlug();" })
+                                @Html.ValidationMessageFor(model => model.Name, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div> <!-- END ROW-->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>URL</label>
+                                @Html.TextBoxFor(model => model.Alias, new { @id = "slug", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Alias, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div> <!-- END ROW-->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Tác giả</label>
+                                @Html.ListBoxFor(model => model.SelectedValuesAuthor, (IEnumerable<SelectListItem>)ViewBag.Authors, new { size=8, @multiple="multiple", @id="AuthorID", @class="form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedValuesAuthor, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div> <!-- END ROW-->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Thể loại</label>
+                                @Html.DropDownListFor(model => model.Category, null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div> <!-- END ROW-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Nội dung</label>
+                                @Html.TextAreaFor(model => model.Content, new { @class = "ckeditor" })
+                                @Html.ValidationMessageFor(model => model.Content, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="hinh-anh">
+                                @if (Model.Image != null)
+                                {
+                                    <img src="@Model.Image" class="img-selected" />
+                                }
+                                else
+                                {
+                                    <img src="~/Assets/admin/css/images/alter-image.jpg" class="img-selected" />
+                                }
+                            </div>
+                            <input type="text" name="Image" id="img-book" value="@Model.Image" style="display:none" />
+                            <input type="button" name="name" value="Chọn ảnh" class="btn-chon-anh" />
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Giá</label>
+                                <div class="col-9">
+                                    @Html.TextBoxFor(model => model.Price, new { @class = "form-control", @type = "number" })
+                                    @Html.ValidationMessageFor(model => model.Price, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Bìa sách</label>
+                                <div class="col-9">
+                                    @if (Model.BookCover == "Bìa mềm")
+                                    {
+                                        <select class="form-control" name="BookCover">
+                                            <option value="Bìa mềm" selected>Bìa mềm</option>
+                                            <option value="Bìa cứng">Bìa cứng</option>
+                                        </select>
+                                    }
+                                    else
+                                    {
+                                        <select class="form-control" name="BookCover">
+                                            <option value="Bìa mềm">Bìa mềm</option>
+                                            <option value="Bìa cứng" selected>Bìa cứng</option>
+                                        </select>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Số trang</label>
+                                <div class="col-9">
+                                    @Html.TextBoxFor(model => model.NumberPages, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.NumberPages, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Nhà xuất bản</label>
+                                <div class="col-9">
+                                    @Html.DropDownListFor(model => model.Publibsher, null, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Publibsher, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Ngày xuất bản</label>
+                                <div class="col-9">
+                                    @Html.EditorFor(model => model.PublicationDate, new { htmlAttributes = new { @type="month", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.PublicationDate, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Kích thước</label>
+                                <div class="col-9">
+                                    @Html.TextBoxFor(model => model.Size, new { @class = "form-control", @type = "text" })
+                                    @Html.ValidationMessageFor(model => model.Size, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-3 col-form-label text-right">Số lượng</label>
+                                <div class="col-9">
+                                    @Html.TextBoxFor(model => model.Quanlity, new { @class = "form-control", @type = "number" })
+                                    @Html.ValidationMessageFor(model => model.Quanlity, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-default btn-them" value="Cập nhật">
+                            <button class="btn btn-default btn-reset">Reset</button>
+                        </div>
+                    </div> <!--END ROW-->
+                    <div class="background-black">
+                    </div>
+                    <div class="manage-image animated bounceInDown">
+                        <div class="row relative">
+                            <div class="col-sm-3 list-category-img">
+                                <input id="upload" name="file" type="file" onchange="readURL(this);" style="display:none" />
+                                <a href="#" id="upload-link">Chọn ảnh</a>
+                                <div class="hinh-duoc-chon">
+                                    <img src="~/Assets/admin/css/images/alter-image.jpg" class="img-selected" />
+                                    <span class="image-selected">...</span>
+                                </div>
+                                <a href="#" id="delete-link"><i class="fa fa-trash-alt"></i></a>
+                                <a href="#" id="reset-link"><i class="fa fa-undo"></i></a>
+                            </div>
+                            <div class="col-sm-9 list-img">
+                                <div class="row search-box-img">
+                                    <input type="text" class="search-box" name="name" value="" />
+                                    <a href="#" class="btn-search"><i class="fa fa-search"></i></a>
+                                </div>
+                                <div class="row" id="result">
+                                    @foreach (var item in listImage)
+                                    {
+                                        <div class="col-sm-3 a-book">
+                                            <img src="@item.path" class="hinh-anh" alt="Alternate Text" id="@item.name" />
+                                            <span class="ten-hinh-anh">@item.name</span>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script id="data-template" type="x-tmpl-mustache">
+
+</script>
+
+@if (ViewBag.Success == true)
+{
+    <script>
+    notify({
+        type: "success", //alert | success | error | warning | info
+        title: "Cập nhật thành công!",
+        position: {
+            x: "right", //right | left | center
+            y: "top" //top | bottom | center
+        },
+        spacing: 20,
+        size: "small",
+        overflowHide: true,
+        autoHide: true,
+        delay: 5000,
+    })
+    </script>
+    ViewBag.Success = false;
+}

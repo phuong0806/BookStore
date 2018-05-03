@@ -1,0 +1,251 @@
+/*LIST BOOK*/
+
+#list-book {
+    width: 70%;
+    padding-right: 23px;
+}
+
+#list-book .category {
+    border-bottom: 1px solid gray;
+}
+
+#list-book .category a {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#list-post {
+    width: 30%;
+    height: 100%;
+    font-family: "roboto";
+}
+
+#list-book .book {
+    width: 100%;
+    display: -webkit-box;
+    border-bottom: 1px solid #ddd;
+    margin-top: 9px;
+    padding-bottom: 22px;
+}
+
+#list-book .book .img-book {
+    width: 30%;
+}
+
+#list-book .book .img-book:hover {
+    opacity: 0.9;
+}
+
+#list-book .book .book-details {
+    width: 70%;
+    padding-top: 9px;
+}
+
+#list-book .book .book-details .title {}
+
+#list-book .book .book-details .title a {
+
+    font-size: 14px;
+
+    color: #333;
+}
+
+#list-book .book .book-details .author {}
+
+#list-book .book .book-details .author a {
+
+    color: #807d7d;
+
+    font-size: 13px;
+}
+
+#list-book .book .book-details .evaluation {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#list-book .book .book-details .price {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ff4200;
+}
+
+#list-book .book .book-details .price .price-regular {
+    margin-top: 8px;
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #807d7d;
+}
+
+#list-book .book .book-details .price .price-sale {
+    margin-left: 5px;
+    color: #FF3B26;
+    font-weight: bold;
+}
+
+#list-book .book .book-details .content {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #333;
+}
+
+#list-book .book .book-details .content a {
+    text-decoration: none;
+}
+
+/*end LIST BOOK*/
+
+/* SIDEBAR REIVEW */
+
+#list-post .sidebar-review .title {
+    background: #e7e7e7;
+    height: 35px;
+    padding-top: 8px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+
+#list-post .sidebar-review {
+    border: 1px solid #e7e7e7;
+}
+
+#list-post .sidebar-review .block-content {}
+
+#list-post .sidebar-review .block-content ul {
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#list-post .sidebar-review .block-content ul li {
+    list-style: none;
+    display: -webkit-box;
+    margin-bottom: 12px;
+    margin-top: 8px;
+}
+
+#list-post .sidebar-review .block-content ul li .img-review {
+    width: 40%;
+    margin-right: 8px;
+}
+
+#list-post .sidebar-review .block-content ul li .img-review img {
+    width: 108px;
+    height: 72px;
+}
+
+#list-post .sidebar-review .block-content ul li .content-post {
+    width: 60%;
+    font-size: 12px;
+    text-align: justify;
+    padding-right: 10px;
+}
+
+#list-post .sidebar-review .block-content ul li .content-post a {
+    color: #333;
+}
+
+
+
+/* END SIDEBAR REIVEW */
+
+
+/* SIDEBAR POSTS */
+
+#list-post .sidebar-posts {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#list-post .sidebar-posts .post {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+#list-post .sidebar-posts .post .img-post {
+    width: 100%;
+}
+
+#list-post .sidebar-posts .post:hover .img-post {
+    box-shadow: rgb(51, 51, 51) 0px 0px 10px;
+}
+
+
+#list-post .sidebar-posts .post .img-post img {
+    width: 100%;
+}
+
+#list-post .sidebar-posts .post .title {
+    width: 100%;
+    text-align: center;
+}
+
+#list-post .sidebar-posts .post .title a {
+    color: #333;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#list-post .sidebar-posts .post .content {
+    font-size: 14px;
+    text-align: center;
+    color: #777777;
+    margin-top: 3px;
+}
+
+#list-post .sidebar-posts .post .view-date {
+    text-align: center;
+    font-size: 16px;
+    color: #777777;
+    margin-top: 3px;
+}
+
+/* END /SIDEBAR POSTS */
+
+/* PAGER */
+
+#list-book .pager {
+    text-align: center;
+    width: 100%;
+    margin-top: 8px;
+}
+
+#list-book .pager ul {
+    list-style: none;
+    float: right;
+}
+
+#list-book .pager ul li {
+
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    margin-left: 2px;
+}
+
+#list-book .pager ul li a {
+    font-size: 13px;
+    color: #777777;
+    display: block;
+    width: 23px;
+}
+
+#list-book .pager ul .page-item {
+    background: whitesmoke;
+}
+
+#list-book .pager ul .page-item.active {
+    background: #e0e0a6;
+}
+
+#list-book .pager ul .page-item.active a {
+    color: black;
+    font-weight: bold;
+}
+
+#list-book .pager ul .page-next {}
+
+#list-book .pager ul .page-last {}
+
+
+/* END PAGER */

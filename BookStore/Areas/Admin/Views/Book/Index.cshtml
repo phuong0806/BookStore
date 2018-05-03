@@ -1,0 +1,163 @@
+﻿@model List<Model.ViewModel.BookViewModel>
+@{
+    ViewBag.Title = "Index";
+    var ListBook = ViewBag.ListBook as List<Model.ViewModel.BookViewModel>;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section cssHeader {
+    <link href="~/Assets/admin/css/list-book.css" rel="stylesheet" />
+}
+
+@section jsFooter {
+    <script src="~/Content/plugins/jquery.twbsPagination.min.js"></script>
+    <script src="~/Assets/admin/js/book.js"></script>
+    <script src="~/Assets/admin/js/list-book.js"></script>
+    <script>
+        
+    </script>
+}
+<div class="row">
+    <div class="col-sm-12 list-book">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-list">
+                    <div class="float-left">
+                        <span class="title-list">DANH SÁCH - Sách</span><span class="result-list"> (@ViewBag.AmountBook results)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row  mt-3 mb-3">
+            <div class="col-sm-12">
+                <div class="display-search">
+                    <div class="float-left">
+                        <input type="text" name="name" value="" class="search-box" placeholder="Search" />
+                        <select class="sel-list">
+                            <option value="value">All</option>
+                            <option value="value">Publish</option>
+                            <option value="value">Unpublish</option>
+                        </select>
+                        <a href="#" class="btn-reset">Reset</a>
+                    </div>
+                    <div class="float-right">
+                        <a href="AddBook" class="my-btn btn-create">create</a>
+                        <a href="#" class="my-btn btn-export">export</a>
+                        <a href="#" class="my-btn btn-import">import</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="my-table table table-sm">
+                    <thead>
+                        <tr class="my-thead text-center">
+                            <td width="7%"></td>
+                            <td width="40%" class="text-left">TÊN SÁCH</td>
+                            <td width="9%">P</td>
+                            <td width="8%">Q</td>
+                            <td width="8%">V</td>
+                            <td width="8%">STATUS</td>
+                            <td width="20%"></td>
+                        </tr>
+                    </thead>
+                    <tbody id="resultBook">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pagination" class="pagination">
+
+</div>
+
+<script id="data-template" type="x-tmpl-mustache">
+    <tr class="text-center" style="font-size:14px;">
+        <td>
+            <img class="" alt="alt" src="{{Image}}" width='48px' height="56px" />
+        </td>
+        <td class="text-left">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a id="{{ID}}" class="title-book">{{Name}}</a>
+                    <a href="#" class="alias-book">{{Alias}}</a>
+                </div>
+            </div>
+        </td>
+        <td>{{Price}} đ</td>
+        <td>{{Quanlity}}</td>
+        <td>{{ViewCount}}</td>
+        <td>
+            {{{Status}}}
+        </td>
+        <td>
+            <a class="my-btn btn-view" href="#">View</a>
+            <a class="my-btn btn-edit" href="/Book/UpdateBook/{{ID}}" data-id="{{ID}}">Edit</a>
+            @*@Html.ActionLink("Delete", "DeleteBook", "Book",
+                new { id = item.ID },
+                new { onclick = "return confirm('Bạn có chắc là xóa quyển sách này?');", @class="my-btn btn-delete" })*@
+            <a class="my-btn btn-delete" data-id="{{ID}}">Delete</a>
+        </td>
+    </tr>
+    <tr class="detail-row open animated fadeIn" id="detail-book-{{ID}}">
+        <td colspan="8">
+            <div class="table-detail">
+                <div class="row">
+                    <div class="col-sm-3" stlye="padding-right:0px">
+                        <div class="text-center hinh-anh">
+                            <img class="" alt="Domain Owner's Avatar" src="{{Image}}" />
+                        </div>
+                    </div>
+                    <div class="col-sm-5" style="padding-left:0px">
+                        <div class="space visible-xs"></div>
+                        <div class="profile-user-info profile-user-info-striped">
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Tác giả </div>
+                                <div class="profile-info-value">
+                                    <span>{{Author}}</span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Danh mục </div>
+                                <div class="profile-info-value">
+                                    <span>{{Catalog}}</span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Thể loại </div>
+                                <div class="profile-info-value">
+                                    <span>{{Category}}</span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Nhà xuất bản </div>
+                                <div class="profile-info-value">
+                                    <span>{{Publisher}}</span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Loại Bìa </div>
+                                <div class="profile-info-value">
+                                    <span>{{BookCover}}</span>
+                                </div>
+                            </div>
+                            <div class="profile-info-row">
+                                <div class="profile-info-name"> Ngày xuất bản </div>
+                                <div class="profile-info-value">
+                                    <span>{{PublicationDate}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</script>

@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WEB BÁN SÁCH</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- jquery -->
+    <script src="~/Content/jquery-2.2.4.js"></script>
+    <!-- boostrap js -->
+    <script src="~/Content/bootstrap.min.js"></script>
+    <!-- carousel -->
+    <link href="~/Assets/client/img/libs/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="~/Assets/client/img/libs/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <script src="~/Assets/client/img/libs/owl-carousel/owl.carousel.min.js"></script>
+    <!-- boostrap css -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!--  font awesome -->
+    <link href="~/Assets/client/img/libs/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- font chữ -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=vietnamese" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=vietnamese" rel="stylesheet">
+    <!-- My css -->
+    <link href="~/Assets/client/css/index.css" rel="stylesheet" />
+    <link href="~/Assets/client/css/trangchu.css" rel="stylesheet" />
+    @RenderSection("cssHeader", required: false)
+</head>
+<body>
+    <div id="page" class="content">
+        <!-- HEADER -->
+        <header>
+            <div class="left-header">
+                <img src="~/Assets/client/img/icons/logobook.png" />
+            </div>
+            <div class="mid-header">
+                <div class="search">
+                    <div class="search-question">Bạn muốn tìm sách gì? </div>
+                    <div class="center-search">
+                        <div class="group-search">
+                            <input type="text" placeholder="Nhập tên sách, tác giả, thể loại..." class="search-box">
+                            <button class=btn-search><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-header">
+                <div class="user-account">
+                    <a href="">Đăng nhập </a> & <a href=""> Đăng ký</a>
+                </div>
+            </div>
+        </header>
+        <!-- end /HEADER -->
+        <!-- NAVIGATION -->
+        <nav id="top-menu">
+            <ul>
+                <li class="active"><a href="">Trang chủ</a></li>
+                <li><a href="the-loai">Sách mới tháng 4</a></li>
+                <li><a href="">Sách bán chạy</a></li>
+                <li><a href="">Sách khuyến mãi</a></li>
+                <li><a href="">Tin tức</a></li>
+                <li><a href="">Hướng dẫn thanh toán</a></li>
+                <li><a href="">Liên hệ</a></li>
+                <li><a href="">Giới thiệu</a></li>
+                <li class="date-now">
+                    Thứ sáu, 13-4-2018
+                </li>
+            </ul>
+        </nav>
+        <div class="clear-fix"></div>
+        <!-- end /NAVIGATION -->
+        <!-- CONTENT -->
+        <main>
+           @RenderBody()
+        </main>
+        <div class="clear-fix"></div>
+        <!-- end /CONTENT -->
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="footer-child">
+                <div class="title">Hỗ trợ khách hàng</div>
+                <ul>
+                    <li>Hotline: 01256 011 040</li>
+                    <li>14004068@student.vlute.edu.vn</li>
+                </ul>
+            </div>
+            <div class="footer-child">
+                <div class="title">Phong cách đọc</div>
+                <ul>
+                    <li><a href="">Phương pháp đọc</a></li>
+                    <li><a href="">Cafe sách</a></li>
+                    <li><a href="">Văn hóa đọc</a></li>
+                    <li><a href="">Trích dẫn sách</a></li>
+                </ul>
+            </div>
+            <div class="footer-child">
+                <div class="title">Thư viện</div>
+                <ul>
+                    <li><a href="">Triết học - Tôn giáo</a></li>
+                    <li><a href="">Lịch sử - Văn hóa</a></li>
+                    <li><a href="">Khoa học – Công nghệ</a></li>
+                    <li><a href="">Kinh doanh</a></li>
+                    <li><a href="">Văn học</a></li>
+                    <li><a href="">Tâm lý - Giáo dục</a></li>
+                </ul>
+            </div>
+            <div class="footer-child">
+                <div class="title">Tuyển tập</div>
+                <ul>
+                    <li><a href="">Phải đọc</a></li>
+                    <li><a href="">Phát triển bản thân</a></li>
+                    <li><a href="">Cuộc sống</a></li>
+                    <li><a href="">Kinh doanh</a></li>
+                    <li><a href="">Tâm lý – Giáo dục</a></li>
+                </ul>
+            </div>
+            <div class="footer-child">
+                <div class="title">Link khác</div>
+                <ul>
+                    <li><a href="">Sự kiện sách</a></li>
+                    <li><a href="">Bạn đọc viết</a></li>
+                    <li><a href="">Tôi đọc gì</a></li>
+                    <li><a href="">Sách mới</a></li>
+                </ul>
+            </div>
+        </footer>
+        <div class="copy-right">
+            <b>© Copyright 2018</b> - THIẾT KẾ TRANG WEB THƯƠNG MẠI ĐIỆN TỬ
+        </div>
+        <!-- end /FOOTER -->
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+$(document).ready(function() {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items: 5,
+        loop: true,
+        margin: 15,
+        autoPlay: true,
+        autoPlayTimeout: 1000,
+        autoPlayHoverPause: true
+    });
+
+    var owlCategory = $('#list-carousel-category .owl-carousel');
+    owlCategory.owlCarousel({
+        items: 7,
+        loop: true,
+        margin: 0,
+        autoPlay: true,
+        autoPlayTimeout: 1000,
+        autoPlayHoverPause: true
+    });
+
+})
+</script>

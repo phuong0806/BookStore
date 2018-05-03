@@ -1,0 +1,150 @@
+﻿@font-face {
+    font-family: helventica;
+    src: url(../fonts/HelveticaNeue-Light.otf);
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: robotoregular;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: robotoregular;
+    src: url(../fonts/HelveticaNeue.ttf);
+}
+
+* {
+    font-family: helventica;
+}
+
+main {
+    margin-top: 15px;
+}
+
+.title-list {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.result-list {
+    color: #696969;
+    font-size: 32px;
+}
+
+.table tr:first-child td {
+    border: none !important;
+}
+
+.my-table {
+    border: 1px solid #ddd;
+}
+
+    .my-table tr {
+        text-align: center;
+    }
+
+.my-thead {
+    background: #f2f2f2;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    color: #007bff;
+    font-size: 14px !important;
+}
+
+.my-table tr td {
+    vertical-align: middle;
+    padding: 7px 12px;
+}
+
+.title-list p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.no-border-radius {
+    border-radius: 0px !important;
+}
+
+.title-list small {
+}
+
+.navbar {
+    border-radius: 0px !important;
+}
+
+.chosen-container-multi .chosen-choices {
+    height: 40px;
+    border-radius: 6px;
+    line-height: 40px;
+}
+
+    .chosen-container-multi .chosen-choices li.search-choice {
+        height: 32px;
+        border-radius: 7px;
+        line-height: 22px;
+        font-size: 14px;
+    }
+
+        .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+            top: 30%;
+        }
+
+.my-btn {
+    text-decoration: none !important;
+    background: #ddd;
+    color: #fefefe !important;
+    display: inline-block;
+    padding: 0px 22px;
+    margin-left: 0px;
+    font-size: 12px;
+    height: 37px;
+    line-height: 38px;
+    border: 1px solid transparent;
+}
+
+.my-btn:hover {
+    cursor:pointer;
+    opacity:0.9;
+}
+
+.btn-import {
+    background: #34495e;
+}
+
+.btn-export {
+    background: #28a745;
+}
+
+.btn-create {
+    background: #1779ba;
+}
+
+.btn-view {background: #17a2b8;}
+
+.btn-edit {background: #1779ba;}
+
+.btn-delete {background: #ef4124;}
+
+.chosen-single {
+    height: 40px;
+    font-size: 15px;
+    line-height: 37px;
+}
+
+.chosen-container-single .chosen-single {
+    height: 40px;
+    font-size: 15px;
+    line-height: 37px;
+}
+
+
+    .chosen-container-single .chosen-single div b {
+        background: url(chosen-sprite.png) no-repeat 0px 9px !important;
+    }

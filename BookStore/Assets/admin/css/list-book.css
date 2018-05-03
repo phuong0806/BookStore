@@ -1,0 +1,119 @@
+﻿.detail-row.open {
+    display: none;
+}
+
+.sel-list {
+
+height: 38px;
+
+background: #f2f2f2;
+
+margin-left: 20px;
+
+border: 1px solid #ddd;
+
+width: 160px;
+}
+
+.profile-user-info.profile-user-info-striped {
+    border: 1px solid #ddd;
+}
+
+.profile-info-row {
+    display: table;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    color: #333;
+}
+
+.profile-info-name {
+    display: table-cell;
+    width: 30%;
+    background: #f9f9f9;
+    padding: 4px;
+    padding-left: 12px;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    text-align: left;
+}
+
+.profile-info-value {
+    padding-left: 15px;
+    text-align: left;
+    /* border-left: 1px solid #ddd; */
+}
+
+.profile-info-name span {
+}
+
+.list-book {
+}
+
+.hinh-anh {
+    height: 234px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+    .hinh-anh img {
+        width: 180px;
+        height: 100%;
+    }
+
+.btn-add-book {
+    display: block;
+    background: #ddd;
+    width: 141px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #333;
+    border-radius: 3px;
+    text-decoration: none !important;
+}
+
+    .btn-add-book:hover {
+        color: #333;
+    }
+
+.btn-reset {
+    text-decoration: none !important;
+    background: #ddd;
+    color: #333;
+    display: inline-block;
+    padding: 0px 17px;
+    margin-left: 10px;
+    font-size: 12px;
+    height: 37px;
+    line-height: 38px;
+    border: 1px solid transparent;
+    width: 75px;
+    text-align: center;
+}
+
+.title-book {
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+    .title-book:hover {
+        color: #333;
+    }
+
+.alias-book {
+    font-size: 10px;
+    display: block;
+}
+
+.search-box {
+    width: 480px;
+    height: 38px;
+    padding: 0px 10px;
+    border: 1px solid #ddd;
+    box-shadow: inset 0px 0px 4px 0px #888888;
+}
