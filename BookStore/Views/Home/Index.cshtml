@@ -1,6 +1,8 @@
-﻿
+﻿@model Model.EF.Book
 @{
     ViewBag.Title = "Index";
+    var ListBook = ViewBag.ListBook ;
+    var ListBookPre = ViewBag.ListBookPre;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -114,122 +116,69 @@
     <!-- LIST BOOK HOT -->
     <div class="list-book">
         <div class="header-list-book-hot">
-            <a href="">SÁCH BÁN CHẠY THÁNG 3/2018</a>
+            <a href="">SÁCH BÁN CHẠY THÁNG <span id="premonth"></span></a>
         </div>
         <div class="owl-carousel owl-theme">
-            @for (int i = 0; i < 18; i++)
+            @foreach (var item in ListBookPre)
             {
-                if (i % 2 == 0)
-                {
-                    <div class="a-book">
-                        <div class="top">
-                            <a href="">
-                                <img class="owl-lazy" src="/Assets/admin/img/upload/bandongu.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="bot">
-                            <a href="" class="title">Diệt Slime Suốt 300 Năm Tôi Level Max Lúc...</a>
-                            <a href="" class="author">Morita Kisetsu, Benio</a>
-                            <span class="price-sale">83.300 ₫</span>
-                            <span class="price-regular">98.000 ₫</span>
-                        </div>
+                <div class="a-book">
+                    <div class="top">
+                        <a href="">
+                            <img class="owl-lazy" src="@item.Image" alt="">
+                        </a>
                     </div>
-                }
-                if (i % 3 == 0)
-                {
-                    <div class="a-book">
-                        <div class="top">
-                            <a href="">
-                                <img class="owl-lazy" src="~/Assets/admin/img/upload/ditimlesong20161.u84.d20161125.t134037.152104.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="bot">
-                            <a href="" class="title">Diệt Slime Suốt 300 Năm Tôi Level Max Lúc...</a>
-                            <a href="" class="author">Morita Kisetsu, Benio</a>
-                            <span class="price-sale">83.300 ₫</span>
-                            <span class="price-regular">98.000 ₫</span>
-                        </div>
+                    <div class="bot">
+                        <a href="" class="title">@item.Name</a>
+                        <a href="" class="author">@item.Authors</a>
+                        <span class="price-sale">@item.Price ₫</span>
+                        <span class="price-regular">@item.Price ₫</span>
                     </div>
-                }
-                else
-                {
-                    <div class="a-book">
-                        <div class="top">
-                            <a href="">
-                                <img class="owl-lazy" src="~/Assets/admin/img/upload/giet-con-chim-nhai_2_2.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="bot">
-                            <a href="" class="title">Diệt Slime Suốt 300 Năm Tôi Level Max Lúc...</a>
-                            <a href="" class="author">Morita Kisetsu, Benio</a>
-                            <span class="price-sale">83.300 ₫</span>
-                            <span class="price-regular">98.000 ₫</span>
-                        </div>
-                    </div>
-                }
+                </div>
             }
+
+                
+        
         </div>
     </div>
     <!-- end /LIST BOOK HOT -->
     <!-- LIST NEW BOOK -->
     <div class="list-book">
         <div class="header-list-book-hot">
-            <a href="">SÁCH MỚI TRONG THÁNG 4/2018</a>
+            <a href="">SÁCH MỚI TRONG THÁNG <span id="newmonth"></span></a>
         </div>
         <div class="owl-carousel owl-theme">
-            @for (int i = 0; i < 18; i++)
+            @foreach (var item in ListBook)
             {
-                if (i % 2 == 0)
-                {
-                    <div class="a-book">
-                        <div class="top">
-                            <a href="">
-                                <img class="owl-lazy" src="/Assets/admin/img/upload/khi-hoi-tho-hoa-thinh-khong.u5464.d20170726.t170655.288851.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="bot">
-                            <a href="" class="title">Diệt Slime Suốt 300 Năm Tôi Level Max Lúc...</a>
-                            <a href="" class="author">Morita Kisetsu, Benio</a>
-                            <span class="price-sale">83.300 ₫</span>
-                            <span class="price-regular">98.000 ₫</span>
-                        </div>
+                <div class="a-book">
+                    <div class="top">
+                        <a href="">
+                            <img class="owl-lazy" src="@item.Image" alt="">
+                        </a>
                     </div>
-                }
-                if (i % 3 == 0)
-                {
-                    <div class="a-book">
-                        <div class="top">
-                            <a href="">
-                                <img class="owl-lazy" src="~/Assets/admin/img/upload/minhnoigi.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="bot">
-                            <a href="" class="title">Diệt Slime Suốt 300 Năm Tôi Level Max Lúc...</a>
-                            <a href="" class="author">Morita Kisetsu, Benio</a>
-                            <span class="price-sale">83.300 ₫</span>
-                            <span class="price-regular">98.000 ₫</span>
-                        </div>
+                    <div class="bot">
+                        <a href="" class="title">@item.Name</a>
+                        <a href="" class="author">@item.Authors</a>
+                        <span class="price-sale">@item.Price ₫</span>
+                        <span class="price-regular">@item.Price ₫</span>
                     </div>
-                }
-                else
-                {
-                    <div class="a-book">
-                        <div class="top">
-                            <a href="">
-                                <img class="owl-lazy" src="~/Assets/admin/img/upload/ong.jpg" />
-                            </a>
-                        </div>
-                        <div class="bot">
-                            <a href="" class="title">Diệt Slime Suốt 300 Năm Tôi Level Max Lúc...</a>
-                            <a href="" class="author">Morita Kisetsu, Benio</a>
-                            <span class="price-sale">83.300 ₫</span>
-                            <span class="price-regular">98.000 ₫</span>
-                        </div>
-                    </div>
-                }
+                </div>
             }
         </div>
     </div>
     <!-- end /LIST NEW BOOK -->
 </section>
+<script type="text/javascript">
+function refrClock()
+{
+var d=new Date();
+var month=d.getMonth();
+var year=d.getFullYear();
+var months=new Array("1","2","3","4","5","6","7","8","9","10","11","12");
+document.getElementById("premonth").innerHTML = months[month-1] + "/" + year;
+document.getElementById("newmonth").innerHTML = months[month] + "/" + year;
+
+}
+refrClock();
+
+</script>
 <!-- end /CONTENT -->

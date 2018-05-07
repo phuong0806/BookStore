@@ -21,5 +21,10 @@ namespace Model.DAO
             var result = db.BookCategories.Where(x => x.Status == true).ToList();
             return result;
         }
+
+        public List<BookCategory> GetCTL()
+        {
+            return db.BookCategories.ToList();
+        }
     }
 }

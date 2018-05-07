@@ -23,6 +23,7 @@
     <!-- My css -->
     <link href="~/Assets/client/css/index.css" rel="stylesheet" />
     <link href="~/Assets/client/css/trangchu.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     @RenderSection("cssHeader", required: false)
 </head>
 <body>
@@ -54,7 +55,7 @@
         <nav id="top-menu">
             <ul>
                 <li class="active"><a href="">Trang chủ</a></li>
-                <li><a href="the-loai">Sách mới tháng 4</a></li>
+                <li><a href="/the-loai/new-book">Sách mới tháng <span id="month"></span></a></li>
                 <li><a href="">Sách bán chạy</a></li>
                 <li><a href="">Sách khuyến mãi</a></li>
                 <li><a href="">Tin tức</a></li>
@@ -62,7 +63,7 @@
                 <li><a href="">Liên hệ</a></li>
                 <li><a href="">Giới thiệu</a></li>
                 <li class="date-now">
-                    Thứ sáu, 13-4-2018
+                    <span id="date-now"></span">
                 </li>
             </ul>
         </nav>
@@ -79,8 +80,18 @@
             <div class="footer-child">
                 <div class="title">Hỗ trợ khách hàng</div>
                 <ul>
-                    <li>Hotline: 01256 011 040</li>
-                    <li>14004068@student.vlute.edu.vn</li>
+                    <li><i class="fas fa-mobile-alt"></i>Hotline:
+                        <ul>
+                            <li style="margin-left:8%;list-style:disc">01256 011 040</li>
+                            <li style="margin-left:8%;list-style:disc">01226849469</li>
+                        </ul> 
+                    </li>
+                    <li><i class="fas fa-envelope"></i> Email:
+                        <ul>
+                            <li style="margin-left:8%;list-style:disc"><a href="mailto:lequocduc14004014@gmail.com">LeeD</a></li>
+                            <li style="margin-left:8%;list-style:disc"><a href="mailto:ng.hg.anh.phuong@gmail.com">Phuong</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="footer-child">
@@ -154,4 +165,23 @@ $(document).ready(function() {
     });
 
 })
+function refrClock() {
+    var d = new Date();
+    var month = d.getMonth();
+    var year = d.getFullYear();
+    var day = d.getDate();
+    day = parseInt(day);
+    if (day < 10)
+    {
+        day="0"+day;
+    }
+    var thu = d.getDay();
+    var thus=new Array("Chủ Nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy")
+    var months = new Array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+    document.getElementById("date-now").innerHTML = thus[thu] + " " + day + "/" + months[month] + "/" + year;
+    var months = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
+    document.getElementById("month").innerHTML = months[month];
+}
+refrClock();
 </script>
+@RenderSection("jsFooter", required: false)

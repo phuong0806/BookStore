@@ -24,8 +24,17 @@ namespace BookStore
              name: "Danh mục",
              url: "the-loai",
              defaults: new { controller = "Category", action = "Index", id = UrlParameter.Optional },
-             namespaces: new[] { "SanGiaoDichBatDongSan.Controllers" }
+             namespaces: new[] { "BookStore.Controllers" }
+            );
+
+            routes.MapRoute(
+             name: "Danh mục sách",
+             url: "the-loai/{Alias}",
+             defaults: new { controller = "Category", action = "loadBookByAliasCategory", id = UrlParameter.Optional },
+             namespaces: new[] { "BookStore.Controllers" }
          );
+
+            
         }
     }
 }

@@ -62,7 +62,7 @@
                 dataType: 'json',
                 success: function (response) {
                     if (response.status == true) {
-                        var data = response.data;
+                        console.log(response.data);
                         var html = '';
                         var template = $('#data-template').html();
                         $.each(data, function (i, item) {

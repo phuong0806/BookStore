@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    var ListCTL = ViewBag.ListBookCTL;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,49 +9,24 @@
     <link href="~/Assets/client/css/sachtheodanhmuc.css" rel="stylesheet" />
 }
 
+@section jsFooter {
+    <script src="~/Assets/client/js/Catalogies.js"></script>
+}
+
 <div id="list-carousel-category">
     <div class="owl-carousel owl-theme">
-        @for (int i = 0; i < 12; i++)
+        @foreach (var item in ListCTL)
         {
-            if (i % 2 == 0)
-            {
-                <div class="a-book">
-                    <div class="top">
-                        <a href="">
-                            <img class="owl-lazy" src="~/Assets/admin/img/upload/minhnoigi.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="bot">
-                        <a href="" class="title">Văn học Việt Nam</a>
-                    </div>
+            <div class="a-book category" data-id="@item.Alias">
+                <div class="top">
+                    <a href="/the-loai/@item.Alias">
+                        <img class="owl-lazy" src="~/Assets/admin/img/upload/ong.jpg" alt="">
+                    </a>
                 </div>
-            }
-            else if (i % 3 == 0)
-            {
-                <div class="a-book">
-                    <div class="top">
-                        <a href="">
-                            <img class="owl-lazy" src="~/Assets/admin/img/upload/bandongu.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="bot">
-                        <a href="" class="title">Văn học Nước Ngoài</a>
-                    </div>
+                <div class="bot">
+                    <span class="title">@item.Name</span>
                 </div>
-            }
-            else
-            {
-                <div class="a-book">
-                    <div class="top">
-                        <a href="">
-                            <img class="owl-lazy" src="~/Assets/admin/img/upload/ong.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="bot">
-                        <a href="" class="title">Sách kinh tế</a>
-                    </div>
-                </div>
-            }
+            </div>
         }
     </div>
 </div>
@@ -65,76 +41,35 @@
 <!-- LIST BOOK -->
 <div id="list-book">
     <!-- BOOK -->
-    @for (int i = 0; i < 55; i++)
+   
+    @if (ViewBag.ListBook != null)
     {
-        if (i % 2 == 0)
+        foreach (var item in ViewBag.ListBook)
         {
             <div class="book">
                 <div class="book-top">
-                    <img src="~/Assets/admin/img/upload/bandongu.jpg" />
+                    <img src="@item.Image" />
                 </div>
                 <div class="book-bot">
-                    <a href="#" class="title-book">Bạn Đỡ Ngu Ngơ Rồi Đấy</a>
-                    <a href="#" class="name-author">Maria Takira</a>
+                    <a href="#" class="title-book">@item.Name</a>
+                    <a href="#" class="name-author">@item.Authors</a>
                     <div class="price">
-                        <span class="price-market">83.000 đ</span>
-                        <span class="price-promotion">98.000 đ</span>
-                    </div>
-                </div>
-            </div>
-        }
-        if (i % 3 == 0)
-        {
-            <div class="book">
-                <div class="book-top">
-                    <img src="~/Assets/admin/img/upload/ditimlesong20161.u84.d20161125.t134037.152104.jpg" />
-                </div>
-                <div class="book-bot">
-                    <a href="#" class="title-book">Đi Tìm Lẻ Sống</a>
-                    <a href="#" class="name-author">Maria Takira & Tony Buổi Sáng</a>
-                    <div class="price">
-                        <span class="price-market">83.000 đ</span>
-                        <span class="price-promotion">98.000 đ</span>
-                    </div>
-                </div>
-            </div>
-        }
-        if (i % 5 == 0)
-        {
-            <div class="book">
-                <div class="book-top">
-                    <img src="~/Assets/admin/img/upload/giet-con-chim-nhai_2_2.jpg" />
-                </div>
-                <div class="book-bot">
-                    <a href="#" class="title-book">Giết Con Chim Nhại</a>
-                    <a href="#" class="name-author">Harper Lee</a>
-                    <div class="price">
-                        <span class="price-market">83.000 đ</span>
-                        <span class="price-promotion">98.000 đ</span>
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="book">
-                <div class="book-top">
-                    <img src="~/Assets/admin/img/upload/minhnoigi.jpg" />
-                </div>
-                <div class="book-bot">
-                    <a href="#" class="title-book">Mình Nói Gì Khi Nói Về Hạnh Phúc?</a>
-                    <a href="#" class="name-author">Maria Takira</a>
-                    <div class="price">
-                        <span class="price-market">83.000 đ</span>
-                        <span class="price-promotion">98.000 đ</span>
+                        <span class="price-market">@item.Price đ</span>
+                        <span class="price-promotion">@item.Price đ</span>
                     </div>
                 </div>
             </div>
         }
     }
+
+
+
     <!-- end /BOOK -->
 </div>
 <!-- end /LIST BOOK -->
 <div class="load-more">
     <a href="#" class="">Load more...</a>
 </div>
+<script type="text/javascript">
+
+</script>
